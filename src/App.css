@@ -1,0 +1,13 @@
+.loader {
+  position: absolute;
+  left : 800px;
+  top : 300px;
+  display : none;
+}
+
+.loader-show{
+  position: absolute;
+  left : 800px;
+  top : 300px;
+  display : block;
+}
