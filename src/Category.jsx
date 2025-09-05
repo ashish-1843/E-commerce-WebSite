@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './App.css';
 export default function Category({finalCategory , setCatname}) {
 
   let cat = finalCategory.map((v,i) => {
@@ -9,10 +9,12 @@ export default function Category({finalCategory , setCatname}) {
     })
 
   return (
-    <div className="font-[500] text-[25px] p-[10px]">Product Category
+    <div className="font-[600] text-[25px] p-[10px] product-list">Product Category
     <ul>   
     {cat}
     </ul>
+
+    
     </div>
   )
 }
