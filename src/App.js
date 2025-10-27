@@ -4,6 +4,9 @@ import Category from './Category';
 import { useEffect, useState } from 'react';
 import { createBootstrapComponent } from 'react-bootstrap/esm/ThemeProvider';
 import Example from './Example';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 
 function App() {
@@ -11,11 +14,13 @@ function App() {
   let [finalProduct, setFinalproduct] = useState([])
   let [catName, setCatname] = useState('')
   let [loader, setLoader] = useState(false)
-  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
+  let [cartItems, setCartItems] = useState([]);
+
+  let addToCart = (index) => {
+    setCartItems([...cartItems, index])
+  };
 
   let getCategory = () => {
     setLoader(true)
@@ -63,18 +68,23 @@ function App() {
 
   let pitems = finalProduct.map((product, index) => {
     return (
-      <ProductItem key={index} pData={product} />
+      <>
+      <ProductItem key={index} pData={product}  addToCart={addToCart}/>
+      </>
     )
   })
 
+ 
+
   return (
     <>
-
-      <div className='py-[40px]'>
+      <div className='py-[60px]'>
         <div className='max-w-[1320px] mx-auto'>
-          <h2 className='text-center text-[40px] font-bold mb-[30px]'>Our Products</h2>
-          {/* <h3><Example/></h3> */}
-          <div className='grid grid-cols-[30%_auto] gap-[20px]'>
+          <div className='top'>
+          <h2 className='text-center text-[40px] font-bold mb-[30px]'>Our Products</h2> 
+          <button className='view-cart'><Example cartitems={cartItems}/></button>
+          </div>
+          <div className='py-[20px] grid grid-cols-[30%_auto] gap-[20px]'>
             <div>
               <img src='https://i.gifer.com/ZKZg.gif' width={100} className={loader ? 'loader-show' : 'loader'}></img>
               <Category finalCategory={finalCategory} setCatname={setCatname} />
@@ -101,15 +111,16 @@ function App() {
 export default App;
 
 
-function ProductItem({ pData }) {
+function ProductItem({ pData, addToCart }) {
+
   return (
 
     <div className='shadow-lg pb-4 text-center product'>
       <img src={pData.thumbnail} className='w-[100%] h-[220px]'></img>
-      <h4>{pData.title}</h4>
+      <h4 className='text-[22px]'>{pData.title}</h4>
       <b>Rs.{pData.price}</b><br></br>
-      <button>Add to cart</button>
+      <button className='cart' onClick={() => addToCart(pData)}>Add to cart</button>
     </div>
-
+    
   )
 }

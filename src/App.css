@@ -1,6 +1,17 @@
 body{
   background-color: #F5F5F5;
 }
+
+.top{
+  display : flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-cart{
+  position: absolute;
+  left : 1300px;
+}
 .loader {
   position: absolute;
   left : 800px;
@@ -15,6 +26,30 @@ body{
   display : block;
 }
 
+.cart{
+  margin-top : 5px;
+  padding : 5px 10px;
+  color : white;
+  background-color: black;
+  border-radius : 10px;
+  transition: ease-in-out;
+}
+
+.cart:hover{
+  background-color: transparent;
+  color : black;
+}
+
+.cart-button{
+  background-color: transparent;
+  border : 2px solid black;
+  padding : 10px 10px;
+  border-radius : 10px;
+}
+
+.cart-button:hover{
+  background-color: aqua;
+}
 @media(max-width:640px){
   
   .product-list{
