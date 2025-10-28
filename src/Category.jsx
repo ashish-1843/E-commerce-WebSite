@@ -9,7 +9,7 @@ export default function Category({finalCategory , setCatname}) {
     })
 
   return (
-    <div className="font-[600] text-[25px] p-[10px] product-list text-center">Product Category
+    <div className="font-[700] text-[25px] p-[10px] product-list text-center">Product Category
     <ul>   
     {cat}
     </ul>

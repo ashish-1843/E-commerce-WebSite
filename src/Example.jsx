@@ -13,7 +13,7 @@ function Example({cartitems}) {
         data-bs-target="#cartOffcanvas"
         aria-controls="cartOffcanvas"
       >
-        Open Cart 🛒 ({itemcount})
+        Cart 🛒 ({itemcount})
       </button>
 
       {/* Offcanvas Cart (opens from right) */}
